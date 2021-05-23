@@ -1,0 +1,261 @@
+
+
+<?php
+
+
+$db_host='127.0.0.1';
+$db_name='ITdata'; 
+$db_user='root'; 
+$db_pass='';
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+$mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name); 
+
+$result = $mysqli->query('SELECT * FROM `Product`');
+
+$product = mysqli_fetch_assoc($result);
+$product2 = mysqli_fetch_assoc($result);
+$aks1 = mysqli_fetch_assoc($result);
+$aks2 = mysqli_fetch_assoc($result);
+$product3 = mysqli_fetch_assoc($result);
+$aks3 = mysqli_fetch_assoc($result);
+$product4 = mysqli_fetch_assoc($result);
+$product5 = mysqli_fetch_assoc($result);
+$product6 = mysqli_fetch_assoc($result);
+
+/*
+$aks3 = mysqli_fetch_assoc($result);
+$aks3 = mysqli_fetch_assoc($result);
+$aks3 = mysqli_fetch_assoc($result);
+
+
+/*print_r($product);
+echo "<br>";
+
+$product = mysqli_fetch_assoc($result);
+print_r($product);
+echo "<br>";
+
+echo $product['ProductName'];
+*/
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+
+
+	<head>
+		<title>VadimIT Store</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8">
+		<link href="assets/templates/theme/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="https://fonts.googleapis.com/css?family=Merriweather&amp;subset=cyrillic" rel="stylesheet">
+		<link href="assets/templates/theme/css/entypo.css" rel="stylesheet" type="text/css">
+		<link href="assets/templates/theme/css/686tees.css" rel="stylesheet" type="text/css">
+	</head>
+<body>
+
+<div class="container">
+	<div class="row header_row">
+		<div class="col-md-4 col-sm-4">
+			<a class="logo" href="index1.php">
+				<span class="entypo heart"></span> VadimIT Store
+			</a>
+		</div>
+		<div class="col-md-4 col-sm-5">
+		</div>
+		<div class="col-md-4 col-sm-3">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-6 mini-basket">
+					<p class="mini-basket-title">
+					<a href="basket.php"><span class="entypo cart"></span> Кошик</a></p>
+					<div class="row">
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<p class="mini-basket-summary">
+								Ціна<br />
+								<span>0.00 грн.</span>
+							</p>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<p class="mini-basket-summary">
+								
+
+                    <div class="smalcart">
+                    <strong>Товаров в корзине:</strong><?=$smal_cart['cart_count']?> шт.
+                    <br/><a href=''>Оформить заказ</a>
+                    </div><br />
+								<span>0</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="navbar navbar-default" role="navigation">
+			  <div class="container-fluid">
+			  
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+			        <span class="sr-only">Меню</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			    </div>
+
+			    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+			      <ul class="nav navbar-nav">
+			        <li class="active"><a href="index1.php">Головна</a></li>
+			        <li><a href="tehnika.php">Техніка</a></li>
+			        <li><a href="aks.php">Аксесуари</a></li>
+			        <li>
+			          <a href="blog-listing.php">Блог</a>
+			        </li>					
+			        <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Інше<b class="caret"></b></a>
+			          <ul class="dropdown-menu">
+			            <li><a href="content.php">Гарантії</a></li>
+						<li><a href="content.php">Правила</a></li>
+			            <li><a href="content.php">Доставка</a></li>
+			            <li><a href="faq.php">Оплата</a></li>
+						<li><a href="contact.php">Контакти</a></li>
+			          </ul>
+			        </li>
+			      </ul>
+			      <form class="navbar-form navbar-right clearfix" role="search">
+			        <div class="form-group">
+			          <input type="text" class="form-control" placeholder="Знайти">
+			        </div>
+			        <button type="submit" class="btn btn-default"><span class="entypo search"></span></button>
+			      </form>
+			    </div>
+			  </div>
+			</nav>
+
+		</div>
+
+	</div>
+
+	<!-- Body -->
+
+	<div class="row">
+
+		<div class="col-md-12">
+
+			<h1 class="catalogue-title">Новинки</h1>
+ 
+		</div>
+
+	</div>
+
+	<!-- Product Listing -->
+
+	<div class="row">
+
+		<div class="col-md-4 col-sm-4 product-listing">
+		
+		
+			<p class="title"><a href="product1.php"><?php echo $product['ProductName'];?></a></p>
+
+			<a href="product1.php"><img class="image" src="assets/templates/theme/img/p1.jpg" alt="Ibiza Lips" /></a>
+
+			<p class="price">
+				<?php echo $product['Price']; echo " грн";?> 
+				<a class="btn btn-addcart btn-primary" href="check1.php"><span class="entypo cart"></span></a>
+			
+<a href="aplication/catalog?in-cart-product-id=<?=$item['id']?>">В корзину</a>
+			</p>
+
+		</div>
+
+		<div class="col-md-4 col-sm-4 product-listing">
+
+			<p class="title"><a href="product.php"><?php echo $aks2['ProductName'];?></a></p>
+
+			<a href="product.php"><img class="image1" src="assets/templates/theme/img/a2.jpg" alt="Ibiza Banana" /></a>
+
+			<p class="price">
+				<?php echo $aks2['Price']; echo " грн";?> 
+				<a class="btn btn-addcart btn-primary" href="check1.php"><span class="entypo cart"></span></a>
+			</p>
+
+		</div>
+		<div class="alert">
+ 
+
+		<div class="col-md-4 col-sm-4 product-listing">
+
+			<p class="title"><a href="product2.php"><?php echo $product3['ProductName'];?></a></p>
+
+			<a href="product2.php"><img class="image" src="assets/templates/theme/img/p3.jpg" alt="I Was There" /></a>
+
+			<p class="price">
+				<?php echo $product3['Price']; echo " грн";?> 
+				<a class="btn btn-addcart btn-primary" href="check1.php"><span class="entypo cart"></span></a>
+			</p>
+
+		</div>
+
+	</div>
+
+	
+
+	<div class="col-md-12">
+
+			<div class="content-box">
+
+				<h1>Про наш магазин</h1>
+
+				<p>Ми VadimIT Store - МАГАЗИН з великої літери. Займаємось новою та б/в технікою, так акссесуарами. Завжди готові допомгти з вибором. Бренд VadimIT розвивається як омніканальній (офлайн і онлайн торгівля) і в 2020 році відзначив 26 років роботи. VadimIT входить в топ-вибір покупців з 1998 року і лідирує в категорії магазинів компютерної техніки за рівнем впізнаваності бренду, відвідування і покупок.
+
+Розвиток мережі почався з відкриття першого магазину в 1994 році в Чернівцях. У 1997 році торгова марка стала офіційним роздрібним торговцем, а у Києві з'явився супермаркет на вул. Дегтярівській, 328. Станом на січень 2021 року мережа налічує 22 магазини загальною торговою площею 15 тис. кв. м. Магазини розташовані в 13 обласних і районних центрах України. У 2012 році VadimIT перейшов на омніканальну платформу управління бізнесом, яка поєднує онлайн і офлайн формати торгівлі.
+
+Торгова мережа VadimIT — учасник Euronics, найбільшої закупівельної групи електроніки та побутової техніки, що працює з 35 країнами Європи.</p>
+
+				<h3>У нас ви зможете знайти:</h3>
+
+				<ul>
+					<li>Компютери</li>
+					<li>Ноутбуки</li>
+					<li>Комплектуючі</li>
+					<li>Мишки</li>
+					<li>Навушники</li>
+					<li>Клавіатури</li>
+					<li>Адаптери</li>
+					<li>Роутери</li>
+					<li>Колонки</li>
+					<li>Та багато інших акссесуарів!!!</li>
+				</ul>
+
+				<h4>Наше місцезнаходження:</h4>
+
+				<p>Наш основний магазин знаходится по адресі м.Чернівці, вул. Пилипа Орлика 42.</p>
+
+			</div>
+
+		</div>
+		
+	<div class="row footer">
+		<div class="col-md-6">
+			<ul class="footer-nav">
+				<li><a href="content.php">Гарантії</a></li>
+				<li><a href="content.php">Правила</a></li>
+				<li><a href="content.php">Доставка</a></li>
+				<li><a href="contact.php">Контакти</a></li>
+			</ul>
+		</div>
+		<div class="col-md-6 footer-right"><p>&copy; VadimIT Store</p></div>
+	</div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="assets/templates/theme/js/bootstrap.min.js"></script>
+</body>
+</html>
+?>
